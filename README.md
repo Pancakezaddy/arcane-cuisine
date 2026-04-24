@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arcane Kitchen
+
+Arcane Kitchen is a desktop-first web app that turns one core protein and a pantry profile into a batch of structured, styled recipe guides for a week of cooking. It is a batch recipe planning and publishing studio.
+
+## Features
+
+- **Pantry Fingerprint** — persistent user kitchen profile with categorized ingredient chips, toggleable staples, and saved presets (Mediterranean, Asian Pantry, Latin Kitchen). Influences batch generation to increase ingredient overlap and reduce unrealistic suggestions.
+- **Leftover Chain Mode** — intentionally designs recipe sequences where one recipe feeds into another. Visual upstream/downstream indicators on recipe cards show chain relationships (e.g., Roast Chicken → Rice Bowls → Soup → Wraps → Grain Salad).
+- **Budget Guardrail Mode** — user-selectable cost profiles: Cheapest Possible Week, Balanced Budget Week, Premium Week. Influences ingredient selection and estimated weekly cost displayed throughout the planner.
+- **Weekly Kitchen Packet** — bundled export combining recipe zine pages, consolidated grocery list, prep notes, leftover map, and suggested weekly cook order into one cohesive planning document.
+
+## Stack
+
+- **Frontend**: Next.js 15, TypeScript, Tailwind CSS
+- **Backend**: Python FastAPI + Postgres (architecture ready; frontend runs on mock data)
+- **Design**: Pine green + warm cream + muted gold palette, editorial serif headings, desktop-first
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Description |
+|-------|-------------|
+| `/` | Dashboard — stats, recent batches, pantry summary, packet exports |
+| `/batch/new` | Generate a new batch plan |
+| `/batch/[id]` | Three-panel batch builder: setup · recipe board · detail/export |
+| `/pantry` | Pantry Fingerprint editor |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/            # Next.js App Router pages
+├── components/     # UI components
+├── context/        # BatchContext global state
+├── lib/            # Mock data and planner logic
+└── types/          # TypeScript data models
+```
