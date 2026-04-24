@@ -1,9 +1,8 @@
 'use client';
-import { useState } from 'react';
 import { Batch, RecipeConcept, ThemeId } from '@/types';
 import { THEMES } from '@/lib/mock-data';
 import { formatTime, cn } from '@/lib/utils';
-import { Palette, Clock, Users, ChefHat, Leaf } from 'lucide-react';
+import { Palette, Clock, ChefHat, Leaf } from 'lucide-react';
 
 interface LivePreviewProps {
   batch: Batch;

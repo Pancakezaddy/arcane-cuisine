@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Batch, BatchInputs, ConceptStatus, RecipeConcept, ThemeId } from '@/types';
 import { SAMPLE_BATCHES } from '@/lib/mock-data';
@@ -12,44 +12,39 @@ import { ExportCenter } from '@/components/export/ExportCenter';
 import { Modal } from '@/components/ui/Modal';
 import { Download } from 'lucide-react';
 
+const NEW_BATCH_DEFAULTS: Batch = {
+  id: 'new',
+  inputs: {
+    name: '',
+    coreProtein: 'chicken-thighs',
+    batchSize: 5,
+    pantryIngredients: ['onions', 'garlic', 'herbs'],
+    pantryRuleMode: 'Standard',
+    seasonalMode: 'Any',
+    balanceProfile: 'Balanced',
+    exclusions: [],
+    maxCookTime: 60,
+    preferredStyle: '',
+  },
+  concepts: [],
+  recipes: [],
+  status: 'draft',
+  activeTheme: 'arcane-editorial',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+};
+
 export default function BatchDetailPage() {
   const params = useParams();
   const id = params?.id as string;
 
-  const [batch, setBatch] = useState<Batch | null>(null);
+  const [batch, setBatch] = useState<Batch | null>(() => {
+    if (id === 'new') return { ...NEW_BATCH_DEFAULTS, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() };
+    return SAMPLE_BATCHES.find(b => b.id === id) ?? null;
+  });
   const [isGenerating, setIsGenerating] = useState(false);
   const [selectedConcept, setSelectedConcept] = useState<RecipeConcept | null>(null);
   const [showExport, setShowExport] = useState(false);
-
-  useEffect(() => {
-    if (id === 'new') {
-      const newBatch: Batch = {
-        id: 'new',
-        inputs: {
-          name: '',
-          coreProtein: 'chicken-thighs',
-          batchSize: 5,
-          pantryIngredients: ['onions', 'garlic', 'herbs'],
-          pantryRuleMode: 'Standard',
-          seasonalMode: 'Any',
-          balanceProfile: 'Balanced',
-          exclusions: [],
-          maxCookTime: 60,
-          preferredStyle: '',
-        },
-        concepts: [],
-        recipes: [],
-        status: 'draft',
-        activeTheme: 'arcane-editorial',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-      setBatch(newBatch);
-    } else {
-      const found = SAMPLE_BATCHES.find(b => b.id === id);
-      if (found) setBatch(found);
-    }
-  }, [id]);
 
   const handleGenerate = async (inputs: BatchInputs) => {
     if (!batch) return;

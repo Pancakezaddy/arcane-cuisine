@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PublicLayout } from '@/components/layout/PublicLayout';
-import { ChefHat, Sparkles, BookOpen, Download, Palette } from 'lucide-react';
+import { ChefHat, Sparkles, Download, Palette } from 'lucide-react';
 
 export default function HomePage() {
   return (

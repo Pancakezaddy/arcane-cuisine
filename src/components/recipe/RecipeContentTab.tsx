@@ -1,7 +1,6 @@
 'use client';
 import { Recipe } from '@/types';
 import { Input } from '@/components/ui/Input';
-import { Select } from '@/components/ui/Select';
 
 interface RecipeContentTabProps {
   recipe: Recipe;

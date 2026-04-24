@@ -2,7 +2,7 @@
 import { Recipe } from '@/types';
 import { THEMES } from '@/lib/mock-data';
 import { formatTime } from '@/lib/utils';
-import { Clock, Users, ChefHat } from 'lucide-react';
+import { Clock, Users } from 'lucide-react';
 
 interface RecipePreviewTabProps {
   recipe: Recipe;

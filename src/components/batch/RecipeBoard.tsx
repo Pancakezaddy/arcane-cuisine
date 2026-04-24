@@ -2,9 +2,6 @@
 import { useState } from 'react';
 import { Batch, ConceptStatus, RecipeConcept } from '@/types';
 import { RecipeBoardCard } from './RecipeBoardCard';
-import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
-import { LayoutGrid, List, SortAsc } from 'lucide-react';
 
 type SortKey = 'overlapScore' | 'title' | 'estimatedCookTime';
 

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate, cn } from '@/lib/utils';
-import { Download, FileText, Image, Globe, CheckCircle, Loader } from 'lucide-react';
+import { Download, FileText, Image as ImageIcon, Globe, CheckCircle, Loader } from 'lucide-react';
 
 interface ExportCenterProps {
   batch: Batch;
@@ -16,7 +16,7 @@ interface ExportCenterProps {
 
 const FORMAT_OPTIONS: { value: ExportFormat; label: string; icon: React.ReactNode; description: string }[] = [
   { value: 'pdf', label: 'PDF', icon: <FileText size={18} />, description: 'Print-ready PDF booklet' },
-  { value: 'png', label: 'PNG Cards', icon: <Image size={18} />, description: 'Individual recipe cards' },
+  { value: 'png', label: 'PNG Cards', icon: <ImageIcon size={18} />, description: 'Individual recipe cards' },
   { value: 'web', label: 'Web Page', icon: <Globe size={18} />, description: 'Shareable web link' },
 ];
 

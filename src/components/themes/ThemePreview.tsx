@@ -1,5 +1,4 @@
 import { ThemeConfig } from '@/types';
-import { formatTime } from '@/lib/utils';
 import { Clock, Users } from 'lucide-react';
 
 interface ThemePreviewProps {

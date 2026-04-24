@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Recipe } from '@/types';
 import { SAMPLE_BATCHES } from '@/lib/mock-data';
@@ -12,14 +12,13 @@ import { ArrowLeft } from 'lucide-react';
 export default function RecipeDetailPage() {
   const params = useParams();
   const id = params?.id as string;
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
-
-  useEffect(() => {
+  const [recipe, setRecipe] = useState<Recipe | null>(() => {
     for (const batch of SAMPLE_BATCHES) {
       const found = batch.recipes.find(r => r.id === id);
-      if (found) { setRecipe(found); return; }
+      if (found) return found;
     }
-  }, [id]);
+    return null;
+  });
 
   const handleSave = async (updated: Recipe) => {
     await updateRecipe(updated.id, updated);

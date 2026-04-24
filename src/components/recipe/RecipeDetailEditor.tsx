@@ -9,7 +9,7 @@ import { RecipeStepsTab } from './RecipeStepsTab';
 import { RecipeNotesTab } from './RecipeNotesTab';
 import { RecipeStyleTab } from './RecipeStyleTab';
 import { RecipePreviewTab } from './RecipePreviewTab';
-import { Save, Eye } from 'lucide-react';
+import { Save } from 'lucide-react';
 import { formatTime } from '@/lib/utils';
 
 interface RecipeDetailEditorProps {

@@ -1,6 +1,6 @@
 import { Header } from '@/components/layout/Header';
 import { SAMPLE_BATCHES } from '@/lib/mock-data';
-import { formatDate, formatTime } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import { Plus, BookOpen, Clock, TrendingUp } from 'lucide-react';
 
