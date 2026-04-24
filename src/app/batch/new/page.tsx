@@ -10,8 +10,7 @@ export default function NewBatchPage() {
 
   useEffect(() => {
     generateBatch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [generateBatch]);
 
   useEffect(() => {
     if (currentBatch) {
