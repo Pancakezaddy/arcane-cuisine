@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --color-pine-50: #f0f7f4;
+  --color-pine-100: #dceee6;
+  --color-pine-200: #b9dece;
+  --color-pine-300: #8cc7af;
+  --color-pine-400: #5dab8b;
+  --color-pine-500: #3a9070;
+  --color-pine-600: #2a7359;
+  --color-pine-700: #1e5c47;
+  --color-pine-800: #164a39;
+  --color-pine-900: #103629;
+  --color-pine-950: #0a2219;
+
+  --color-cream-50: #fefdf8;
+  --color-cream-100: #fdf9ed;
+  --color-cream-200: #faf3d9;
+  --color-cream-300: #f6eabd;
+  --color-cream-400: #f0dc98;
+  --color-cream-500: #e8cc6e;
+
+  --color-brass-400: #c4a35a;
+  --color-brass-500: #b08d3f;
+  --color-brass-600: #9a7a2f;
+
+  --color-olive-400: #8b8d4a;
+  --color-olive-500: #747638;
+  --color-olive-600: #5e602c;
+}
+
+:root {
+  --background: #fefdf8;
+  --foreground: #103629;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+}
